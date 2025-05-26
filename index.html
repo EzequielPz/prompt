@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Veterinaria</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body>
+<div class="container mt-4">
+    <!-- Sección de Registro -->
+    <div id="registro" class="card p-4 mb-3">
+        <h3 class="text-center mb-3">Crear Cuenta</h3>
+        <form id="registroForm">
+            <div class="mb-3">
+                <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control" id="nombreUsuario" required />
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" required />
+            </div>
+            <div class="mb-3 position-relative">
+                <label for="contrasena" class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="contrasena"
+                  required
+                />
+                <span class="toggle-password" id="toggleContrasena" style="position:absolute; right:10px; top:38px; cursor:pointer;">👁️</span>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+            <p class="mt-3 text-center">
+                ¿Ya tienes cuenta? <a href="#" id="mostrarLogin">Iniciar sesión</a>
+            </p>
+        </form>
+    </div>
+
+    <!-- Sección de Inicio de Sesión -->
+    <div id="login" class="card p-4 mb-3" style="display:none;">
+        <h3 class="text-center mb-3">Iniciar Sesión</h3>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="nombreUsuarioLogin" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control" id="nombreUsuarioLogin" required />
+            </div>
+            <div class="mb-3 position-relative">
+                <label for="contrasenaLogin" class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="contrasenaLogin"
+                  required
+                />
+                <span class="toggle-password" id="toggleContrasenaLogin" style="position:absolute; right:10px; top:38px; cursor:pointer;">👁️</span>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+            </div>
+            <p class="mt-3 text-center">
+                ¿No tienes cuenta? <a href="#" id="mostrarRegistro">Crear cuenta</a>
+            </p>
+        </form>
+    </div>
+
+    <!-- Menú principal después de login -->
+    <div id="menu" style="display:none;">
+        <h3 class="text-center mb-3">Menú Principal</h3>
+        <div class="d-grid gap-2 mb-3">
+            <button class="btn btn-info" id="btnCita">🗓 Agendar Cita</button>
+            <button class="btn btn-info" id="btnReportes">📊 Reportes</button>
+            <button class="btn btn-info" id="btnVerDatos">👤 Ver mis datos</button>
+        </div>
+
+        <!-- Sección de cita médica -->
+        <div id="citaMedica" class="card p-4 mb-3" style="display:none;">
+            <h4 class="mb-3">Agendar Cita Veterinaria</h4>
+            <form id="formCita">
+                <div class="mb-3">
+                    <label for="nombreDuenio" class="form-label">Nombre del Dueño</label>
+                    <input type="text" class="form-control" id="nombreDuenio" required />
+                </div>
+                <div class="mb-3">
+                    <label for="nombreMascota" class="form-label">Nombre de la Mascota</label>
+                    <input type="text" class="form-control" id="nombreMascota" required />
+                </div>
+                <div class="mb-3">
+                    <label for="fecha" class="form-label">Fecha de la cita</label>
+                    <input type="date" class="form-control" id="fecha" required />
+                </div>
+                <div class="mb-3">
+                    <label for="hora" class="form-label">Hora</label>
+                    <input type="time" class="form-control" id="hora" required />
+                </div>
+                <div class="mb-3">
+                    <label for="sintomas" class="form-label">Síntomas</label>
+                    <textarea class="form-control" id="sintomas" rows="3" required></textarea>
+                </div>
+                <div class="d-grid gap-2 mb-3">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Sección de resultados cita -->
+        <div id="resultadoCita" class="card p-3 mb-3" style="display:none;">
+            <h5>Datos de la cita</h5>
+            <p><strong>Dueño:</strong> <span id="resDuenio"></span></p>
+            <p><strong>Mascota:</strong> <span id="resMascota"></span></p>
+            <p><strong>Fecha:</strong> <span id="resFecha"></span></p>
+            <p><strong>Hora:</strong> <span id="resHora"></span></p>
+            <p><strong>Síntomas:</strong> <span id="resSintomas"></span></p>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (opcional, para componentes interactivos) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JavaScript personalizado -->
+<script src="css/script.js"></script>
+</body>
+</html>
